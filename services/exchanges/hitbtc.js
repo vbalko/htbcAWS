@@ -1,8 +1,8 @@
 // const d3 = require('d3-fetch');
 const req = require('request-promise');
 const logger = require('../winston');
-const tickersUtils = require('../../api/tickers/utils');
-const ticker2Utils = require('../../api/tickers2/utils');
+//const tickersUtils = require('../../api/tickers/utils');
+//const ticker2Utils = require('../../api/tickers2/utils');
 
 
 class HitBTC {
@@ -41,9 +41,9 @@ class HitBTC {
 					return item;
 				});
 			if (version == 1) {
-				tickersUtils.processTickers(aSymbols);
+//				tickersUtils.processTickers(aSymbols);
 			} else {
-				ticker2Utils.processTickers(aSymbols);
+//				ticker2Utils.processTickers(aSymbols);
 			}
 			return await aSymbols;
 		} catch (err) {
@@ -73,7 +73,7 @@ class HitBTC {
 
 	async tst() {
 		const tickers = await this.getTickers();
-		tickersUtils.processTickers(tickers);
+//		tickersUtils.processTickers(tickers);
 		return await tickers;
 	}
 }

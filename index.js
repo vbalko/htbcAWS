@@ -1,12 +1,12 @@
 //const express = require('./services/express');
 const logger = require('./services/winston');
-const aws = require('./services/aws');
-//const ctrl = require('./api/controller');
+
+const ctrl = require('./controller');
 //const expressPort = require('./config').port;
 //const tradeUtil = require('./api/controller/trade/utils');
 
-//init AWS
-// aws.
+//init dynamo tables
+ctrl.initTables();
 
 //const app = express(api,__dirname);
 

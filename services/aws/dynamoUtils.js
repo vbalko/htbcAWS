@@ -1,11 +1,7 @@
-const AWS = require('aws-sdk');
-const conf = require('../../config').dynamoDB;
+const AWS = require('./awsSdk');
 const logger = require('../winston');
 
-AWS.config.update({
-	region: conf.region,
-	endpoint: conf.uri
-});
+
 //create dynamodb object
 const db = new AWS.DynamoDB();
 

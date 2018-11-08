@@ -45,10 +45,25 @@ class tickerHeaderClass {
 			logger.debug('Added item:', JSON.stringify(data, null, 2));
 		} catch (err) {
 			logger.error(
-				'Error in tickerHeader.put. Error JSON:',
-				JSON.stringify(err, null, 2)
+				`Error in tickerHeader.put. | ${err.code} | ${err.message}`
 			);
 		}
+	}
+	async getBySymbol(symbol) {
+		const params = {
+			TableName: this.tableName,
+			Key: {
+				'symbol': symbol
+			}
+		};
+		try {
+			const data = await this.docClient.get(params).promise();
+			logger.debug(`Got header: ${JSON.stringify(data,null,2)}`)
+			return data;
+		} catch (err) {
+			logger.error(`Error in tickerHeader.getBySymbol. | ${err.code} | ${err.message}`);
+		}
+		
 	}
 }
 
